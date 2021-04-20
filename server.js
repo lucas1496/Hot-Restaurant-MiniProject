@@ -29,17 +29,13 @@ app.get('/reserve', function(req, res) {
 });
 
 app.get('/api/tables', function(req, res) {
-	/*for (var i = 0; i < 4; i++) {
-		res.json(customers[i]);
-	}*/
-	return res.json(customers);
+	
+	res.json(customers);
 });
 
 app.get('/api/waitlist', function(req, res) {
-	/*for (var i = 5; i < customers.length; i++) {
-		res.json(customers[i]);
-	}*/
-	return res.json(waitlist);
+	
+	res.json(waitlist);
 });
 
 app.post('/api/clear', function(req, res) {
@@ -50,7 +46,7 @@ app.post('/api/clear', function(req, res) {
 app.post('/api/new', function(req, res) {
 	console.log('Works');
 	var newCustomer = req.body;
-	if (customers.length >= 5) {
+	if (customers.length >= 2) {
 		waitlist.push(newCustomer);
 	} else {
 		customers.push(newCustomer);

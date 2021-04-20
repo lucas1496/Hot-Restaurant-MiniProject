@@ -1,16 +1,15 @@
-function runTableQuery(){
+ function runTableQuery(){
 
     // Here we get the location of the root page.
     // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
-    var currentURL = window.location.origin;
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({url: currentURL + "/api/tables", method: "GET"})
+    $.get("/api/tables")
         .done(function(tableData) {
 
             // Here we are logging the URL so we have access to it for troubleshooting
             console.log("------------------------------------");
-            console.log("URL: " + currentURL + "/api/tables");
+            console.log("/api/tables");
             console.log("------------------------------------");
 
             // Here we then log the NYTData to console, where it will show up as an object.
